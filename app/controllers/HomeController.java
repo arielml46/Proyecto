@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.inject.Inject;
 import play.data.Form;
 import play.mvc.*;
-import models.Producto;
+import Models.Producto;
 import play.data.FormFactory;
 import play.data.validation.Constraints;
 import views.html.*;
@@ -26,7 +26,7 @@ FormFactory formFactory;
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
-        return ok(index.render(""));
+        return ok(index.render());
     }
 
 }
