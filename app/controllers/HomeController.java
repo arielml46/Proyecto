@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import play.data.Form;
 import play.mvc.*;
 import Models.Producto;
+import static play.api.Application$class.routes;
+import static play.api.Play.routes;
 import play.data.FormFactory;
 import play.data.validation.Constraints;
 import views.html.*;
@@ -26,7 +28,30 @@ FormFactory formFactory;
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
-        return ok(index.render());
+        return ok(index.render("Compra"));
     }
+    public Result crearProductoGet()
+    {
+        Form<Producto> prodForm= formFactory.form(Producto.class);
+        return ok(crear.render("Compra de Baldosas y Columnas", 
+                prodForm, 
+                routes.HomeController.crearProductoPost()));
+    } 
+    public Result crearProductoPost()
+    {
+        Form<Producto> prodForm = formFactory.form(Producto.class).bindFromRequest();
+        if(prodForm.hasErrors())
+        {
+            return badRequest(crear.render("El pedido tiene errores",prodForm, routes.HomeController.index()));
+        }
+        else
+        {
+            Producto prod=prodForm.get();
+            prod.save();
+            prodForm=formFactory.form(Producto.class);
+        }
+        return ok(crear.render("Recepcion pedido correcto.", prodForm,routes.HomeController.crearProductoPost()));
+    }
+    
 
 }
