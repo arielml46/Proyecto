@@ -50,7 +50,7 @@ FormFactory formFactory;
             prod.save();
             prodForm=formFactory.form(Producto.class);
         }
-        return ok(crear.render("Recepcion pedido correcto.", prodForm,routes.HomeController.crearProductoPost()));
+        return ok(crear.render("Se ha guardado el pedido correctamente.", prodForm,routes.HomeController.crearProductoPost()));
     }
     
 
