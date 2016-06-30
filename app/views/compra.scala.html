@@ -4,48 +4,25 @@
     <div class="alert"> @message </div>
    
     
-    @form(postUrl, 'class -> "form") {
-        
-        @if(searchForm.hasGlobalErrors) {
-            <div class="alert alert-danger">
-            @searchForm.globalError.message
-            </div>
-    }
-
-    <fieldset>
-        
-        <div class="row">
-            <div class="col-md-4"> @inputText(
-                searchForm("texto"),
-                '_label -> "Cantidad del producto",
-                '_help -> "Digite n&uacute; meros enteros,
-                'class -> "form-control"
-                )</div>
-           
-       @input(searchForm("Tipo:")) { (id, name, value, args) =>
-
-        <select name="@name" id="@id" @toHtmlArgs(args)>
-                <option value="true" selected>Baldosa Simple</option>
-            <option value="False" selected>Baldosa con Toma de Corriente</option>
-            <option value="False">Baldosa para apagador</option>
-            <option value="False">Baldosa para caja de Circuitos</option>
-            <option value="false">Columna L</option>
-            <option value="false">Columna T</option>
-            <option value="false">Columna Simple</option>
-        </select>
-        }
-            
-            @input(searchForm("Tamano:")) { (id, name, value, args) =>
-
-        <select name="@name" id="@id" @toHtmlArgs(args)>
-                <option value="true" selected>1 Metro</option>
-            <option value="false">1.20 Metro</option>
-            <option value="false">2.20 Metros</option>
-        </select>
-        }
-
+  
+    <label class="radio-inline">
+  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Paquete: 12 Columnas Precio:100000
+</label>
+<label class="radio-inline">
+  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Paquete: 12 Tes Precio:120000
+</label>
+<label class="radio-inline">
+  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Paquete: 12 Coronas Precio:80000
+</label>
+    <label class="radio-inline">
+  <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4"> Paquete: 24 Baldosas Precio:200000
+</label>
+    
+    <textarea class="form-control" rows="3"></textarea>
     
     <h1>Producto</h1>
+    
+    <a href="@routes.HomeController.crearProductoGet()" class="btn btn-success">Colocar en el carro de compras</a>
     <a href="@routes.HomeController.crearProductoGet()" class="btn btn-success">Comprar</a>
 
     </div>

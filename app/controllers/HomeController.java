@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import play.data.Form;
 import play.mvc.*;
 import Models.Producto;
+import static com.google.common.collect.Multimaps.index;
 import static play.api.Application$class.routes;
 import static play.api.Play.routes;
 import play.data.FormFactory;
@@ -33,7 +34,7 @@ FormFactory formFactory;
     public Result crearProductoGet()
     {
         Form<Producto> prodForm= formFactory.form(Producto.class);
-        return ok(crear.render("Compra de Baldosas y Columnas", 
+        return ok(compra.render("Compra de Baldosas y Columnas", 
                 prodForm, 
                 routes.HomeController.crearProductoPost()));
     } 
@@ -42,7 +43,7 @@ FormFactory formFactory;
         Form<Producto> prodForm = formFactory.form(Producto.class).bindFromRequest();
         if(prodForm.hasErrors())
         {
-            return badRequest(crear.render("El pedido tiene errores",prodForm, routes.HomeController.index()));
+            return badRequest(compra.render("El pedido tiene errores",prodForm, routes.HomeController.index()));
         }
         else
         {
@@ -50,7 +51,7 @@ FormFactory formFactory;
             prod.save();
             prodForm=formFactory.form(Producto.class);
         }
-        return ok(crear.render("Se ha guardado el pedido correctamente.", prodForm,routes.HomeController.crearProductoPost()));
+        return ok(compra.render("Se ha guardado el pedido correctamente.", prodForm,routes.HomeController.crearProductoPost()));
     }
     
 
