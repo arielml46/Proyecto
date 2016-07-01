@@ -28,5 +28,21 @@ FormFactory formFactory;
     public Result index() {
         return ok(index.render());
     }
-
+    
+    
+    public Result nosotros() {
+        return ok(nosotros.render());
+    }
+    
+    public Result horarios() {
+        return ok(horarios.render());
+    }
+    
+    public Result productos() {
+        return ok(productos.render());
+    }
+    
+    public Result compra() {
+        return ok(compra.render());
+    }
 }
