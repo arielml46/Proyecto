@@ -7,9 +7,6 @@ import javax.inject.Inject;
 import play.data.Form;
 import play.mvc.*;
 import Models.Producto;
-import static com.google.common.collect.Multimaps.index;
-import static play.api.Application$class.routes;
-import static play.api.Play.routes;
 import play.data.FormFactory;
 import play.data.validation.Constraints;
 import views.html.*;
@@ -29,30 +26,7 @@ FormFactory formFactory;
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
-        return ok(index.render("Compra"));
+        return ok(index.render());
     }
-    public Result crearProductoGet()
-    {
-        Form<Producto> prodForm= formFactory.form(Producto.class);
-        return ok(compra.render("Compra de Baldosas y Columnas", 
-                prodForm, 
-                routes.HomeController.crearProductoPost()));
-    } 
-    public Result crearProductoPost()
-    {
-        Form<Producto> prodForm = formFactory.form(Producto.class).bindFromRequest();
-        if(prodForm.hasErrors())
-        {
-            return badRequest(compra.render("El pedido tiene errores",prodForm, routes.HomeController.index()));
-        }
-        else
-        {
-            Producto prod=prodForm.get();
-            prod.save();
-            prodForm=formFactory.form(Producto.class);
-        }
-        return ok(compra.render("Se ha guardado el pedido correctamente.", prodForm,routes.HomeController.crearProductoPost()));
-    }
-    
 
 }
