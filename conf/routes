@@ -8,6 +8,7 @@ GET     /nosotros.scala.html        controllers.HomeController.nosotros
 GET     /horarios.scala.html        controllers.HomeController.horarios
 GET     /productos.scala.html       controllers.HomeController.productos
 GET     /compra.scala.html          controllers.HomeController.compra
+GET     /login.scala.html          controllers.HomeController.login
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count

@@ -45,4 +45,8 @@ FormFactory formFactory;
     public Result compra() {
         return ok(compra.render());
     }
+    
+    public Result login() {
+        return ok(login.render());
+    }
 }
