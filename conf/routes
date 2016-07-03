@@ -5,8 +5,8 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 GET     /nosotros.scala.html        controllers.HomeController.nosotros
-GET     /productos.scala.html       controllers.HomeController.horarios
-GET     /horarios.scala.html        controllers.HomeController.productos
+GET     /horarios.scala.html        controllers.HomeController.horarios
+GET     /productos.scala.html       controllers.HomeController.productos
 GET     /compra.scala.html          controllers.HomeController.compra
 
 # An example controller showing how to use dependency injection
