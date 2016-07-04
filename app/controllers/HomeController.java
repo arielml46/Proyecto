@@ -46,10 +46,10 @@ FormFactory formFactory;
         return ok(compra.render());
     }
     
-    public Result home() {
+   /* public Result home() {
         return ok(home.render());
     }
-    
+    */
     
     
 }

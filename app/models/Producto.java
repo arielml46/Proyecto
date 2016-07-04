@@ -21,8 +21,7 @@ public class Producto extends Model{
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long id;
     
-    public int tamanno;
-    public int precionUnidad;
+    public int precio;
     public String tipo;
     public int cantidad;
     public static Model.Finder<Long, Producto> find=new 
