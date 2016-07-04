@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.inject.Inject;
 import play.data.Form;
 import play.mvc.*;
-import Models.Producto;
+import models.Producto;
 import play.data.FormFactory;
 import play.data.validation.Constraints;
 import views.html.*;
@@ -46,7 +46,10 @@ FormFactory formFactory;
         return ok(compra.render());
     }
     
-    public Result login() {
-        return ok(login.render());
+    public Result home() {
+        return ok(home.render());
     }
+    
+    
+    
 }

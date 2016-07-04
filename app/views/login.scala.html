@@ -1,24 +1,33 @@
-@main(""){
+@(loginForm: Form[Application.Login])
+
+@import helper._
 
 
- <h1 class="text-center" style="font-size:20px; color:#6834B1">Ingreso de Administrador</h1>
- <br>
- <br>
-<form class="form-inline">
-  <div class="text-center" class="form-group">
-    <label class="sr-only" for="exampleInputEmail3">Usuario</label>
-    <input type="Usuario" class="form-control" id="exampleInputEmail3" placeholder="Usuario">
-  </div>
-    <br>
-  <div class="text-center" class="form-group">
-    <label class="sr-only" for="exampleInputPassword3">Password</label>
-    <input type="Password" class="form-control" id="exampleInputPassword3" placeholder="Password">
-  </div>
-    <center>
-        <br>
-    <td><button class="text-center" type="submit" class="btn btn-default">Ingresar</button></td>
-</form>
- 
-</center>
+@form(routes.Application.authenticate(), 'class -> "form") {
 
+    @if(loginForm.hasGlobalErrors) {
+        <div class="alert alert-danger">
+            @loginForm.globalError.message
+        </div>
+    }
+    <fieldset>
+        @inputText(
+            loginForm("username"),
+            'placeholder -> "Usuario",
+            '_label -> null,
+            '_help -> "Información Requerida",
+            'class -> "form-control"
+        )
+        @inputPassword(
+            loginForm("Password"),
+            '_label -> null,
+            'placeholder -> "Password",
+            '_help -> "Información Requerida",
+            'class -> "form-control "
+        )
+    </fieldset>
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-success pull-right" value="Ingresar">
+    </div>
 }

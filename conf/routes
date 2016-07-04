@@ -8,12 +8,24 @@ GET     /nosotros.scala.html        controllers.HomeController.nosotros
 GET     /horarios.scala.html        controllers.HomeController.horarios
 GET     /productos.scala.html       controllers.HomeController.productos
 GET     /compra.scala.html          controllers.HomeController.compra
-GET     /login.scala.html          controllers.HomeController.login
+GET     /home.scala.html           controllers.HomeController.home
+
+
+# Manejo de login de sesion
+
+GET     /ingreso                    controllers.Application.home()
+POST    /login                      controllers.Application.authenticate()
+GET     /logout                     controllers.Application.logout()
+
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
+
+
 # An example controller showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message
+
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
