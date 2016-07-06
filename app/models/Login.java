@@ -5,25 +5,27 @@
  */
 package models;
 
-import java.util.*;
-import javax.persistence.*;
+
 import com.avaje.ebean.Model;
-import play.data.format.*;
-import play.data.validation.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import play.mvc.Result;
+import static play.mvc.Results.ok;
+
 /**
  *
  * @author usuario
  */
-@Entity
-public class Producto extends Model{
+public class Login {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long id;
     
-    public int precio;
-    public String tipo;
-    public int cantidad;
+    public String contraseña;
+    public String usuario;
     public static Model.Finder<Long, Producto> find=new 
         Model.Finder<Long, Producto>(Producto.class);
     
 }
+

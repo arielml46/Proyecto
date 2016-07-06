@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package controllers;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,27 +26,54 @@ import static play.mvc.Results.ok;
 public class CompraController extends Controller{   
     @Inject
     FormFactory formFactory;
-    public Result crearPreguntaGet() {
+    List lista;
+    public Result crearCompraGet() {
         Form<Producto> prodForm = formFactory.form(Producto.class);
-        return ok(compra.render(prodForm,
-                routes.CompraController.crearPreguntaPost()));
+        return ok(compra.render(routes.CompraController.crearCompraPost()));
     }
 
     public Result crearCompraPost() {
         Form<Producto> prodForm = formFactory.form(Producto.class).bindFromRequest();
+        System.out.print("kjacbbwdhvbfkjb dfkjbvhdjfbvhdfjhbvdjfhvbdjbfvhjdfbvjdbfjhdfb");
         if (prodForm.hasErrors()) {
-            return badRequest(compra.render("Encontramos errores",
-                    prodForm, routes.HomeController.compra()));
-        } else {
+            return badRequest(compra.render(routes.HomeController.compras()));
+        } else
+        {
             Producto prod=prodForm.get();
             if(prod.id.equals("0"))
             {
-//                Producto prod= prodForm.get();
-                prod.save();
-                prodForm = formFactory.form(Producto.class);
-            } else {
+                Producto pord=new Producto();
+                pord.cantidad=12;
+                pord.precio=100000;
+                pord.tipo="Columna";
+                
+                pord.save();
+            } else if(prod.id.equals("1")){
+                Producto pord=new Producto();
+                pord.cantidad=12;
+                pord.precio=120000;
+                pord.tipo="Tes";
+                pord.save();
+            }else if(prod.id.equals("2")){
+                Producto pord=new Producto();
+                pord.cantidad=12;
+                pord.precio=80000;
+                pord.tipo="Coronas";
+                pord.save();
+            }else if(prod.id.equals("3")){
+                Producto pord=new Producto();
+                pord.cantidad=12;
+                pord.precio=100000;
+                pord.tipo="Baldosas";
+                pord.save();
             }
-        return ok(compra.render("", prodForm,
-                routes.CompraController.crearCompraPost()));
+        }
+        return ok(compra.render(routes.HomeController.compras()));
     }
-}
+    public Result realizarCompra()
+    {
+        List<Producto>lista=Producto.find.all();
+        Form<Producto> prodForm  = formFactory.form(Producto.class);
+      return ok(compra.render("Listado de Grupo",prodForm));
+    }   
+    }

@@ -11,6 +11,7 @@ libraryDependencies ++= Seq(
   javaJdbc,
   cache,
   javaWs
+  
 )
 
 libraryDependencies += filters

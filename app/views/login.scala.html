@@ -1,0 +1,25 @@
+@(String message)
+@main(""){
+ 
+ 
+  <h1 class="text-center" style="font-size:20px; color:#6834B1">Ingreso de Administrador</h1>
+  <br>
+  <br>
+ <form class="form-inline">
+   <div class="text-center" class="form-group">
+     <label class="sr-only" for="exampleInputEmail3">Usuario</label>
+     <input type="Usuario" class="form-control" id="exampleInputEmail3" placeholder="Usuario">
+   </div>
+     <br>
+   <div class="text-center" class="form-group">
+     <label class="sr-only" for="exampleInputPassword3">Password</label>
+     <input type="Password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+   </div>
+     <center>
+        <br>
+    <td><button href="@routes.LoginController.loginAdmin()" class="text-center" type="submit" class="btn btn-default">Ingresar</button></td>
+</form>
+ 
+ </center>
+ 
+} 

@@ -3,20 +3,20 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
-GET     /nosotros.scala.html        controllers.HomeController.nosotros
-GET     /horarios.scala.html        controllers.HomeController.horarios
-GET     /productos.scala.html       controllers.HomeController.productos
-GET     /compra.scala.html          controllers.HomeController.compra
-#GET     /home.scala.html           controllers.HomeController.home
+GET     /                           controllers.HomeController.index()
+GET     /nosotros.scala.html        controllers.HomeController.nosotros()
+GET     /horarios.scala.html        controllers.HomeController.horarios()
+GET     /productos.scala.html       controllers.HomeController.productos()
+GET     /compra.scala.html          controllers.HomeController.compras()
+GET     /agregarCarrito             controllers.CompraController.crearCompraGet
+GET     /login.scala.html           controllers.HomeController.login()
+GET     /admin.scala.html           controllers.LoginController.admin()
 
+POST    /agregarCarrito             controllers.CompraController.crearCompraPost
 
-# Manejo de login de sesion
+# Manejo login
 
-#GET     /ingreso                    controllers.Application.home()
-#POST    /login                      controllers.Application.authenticate()
-#GET     /logout                     controllers.Application.logout()
-
+GET     /login.scala.html           controllers.LoginController.login()
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count

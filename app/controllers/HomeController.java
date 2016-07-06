@@ -42,10 +42,13 @@ FormFactory formFactory;
         return ok(productos.render());
     }
     
-    public Result compra() {
-        return ok(compra.render());
+    public Result compras() {
+        return ok(compra.render(routes.HomeController.compras()));
     }
     
+    public Result login(){
+        return ok(login.render("Ingrese el Usuario", login.render(routes.HomeController.login)));
+    }
    /* public Result home() {
         return ok(home.render());
     }
